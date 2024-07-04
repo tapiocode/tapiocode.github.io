@@ -9,7 +9,7 @@
 .logo {
   max-width: 300px;
   background-color: #151515;
-  margin: 2.5rem 0;
+  margin: 2.5rem 0 1rem;
 }
 
 .cards-container {
@@ -21,7 +21,9 @@
 .ingress {
   font-size: 1.1rem;
   font-weight: 400;
-  margin: 0 .3rem;
+  margin: 0 .3rem 1.5rem;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid #ffffff40;
   display: flex;
   justify-content: space-between;
 }
@@ -39,7 +41,6 @@ h2,
 h3 {
   margin: .5rem 0 0;
   padding: 0;
-  font-weight: normal;
 }
 
 .category {
@@ -52,21 +53,21 @@ h3 {
     display: flex;
     gap: 1rem;
     align-items: center;
-    margin: 0 .2rem;
+    margin: 0;
   }
 
-  .icon {
-    background-color: #ddd;
-    border: 2px solid #00000090;
-    border-radius: 50%;
-    width: 3.5rem;
-    height: 3.5rem;
+  .title {
+    padding: 0 .5rem;
+    width: fit-content;
+    height: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    white-space: nowrap;
 
     img {
-      height: 60%;
+      height: 100%;
+      margin-right: .5rem;
     }
   }
 }
@@ -86,7 +87,7 @@ section {
 
   .container {
     width: 100%;
-    padding-right: 1rem;
+    padding-right: .7rem;
   }
 
   .content {
@@ -108,39 +109,30 @@ section {
   ul {
     margin: 0;
     padding: 0;
-    width: 5rem;
+    width: fit-content;
+    text-align: right;
   }
   li {
     list-style: none;
-    margin: .2rem;
+    margin: .2rem 0;
     white-space: nowrap;
   }
-  li:before {
+  li:after {
     --width: .8rem;
     content: '';
     display: inline-block;
     vertical-align: bottom;
-    margin-right: .2rem;
+    margin-left: .4rem;
     width: var(--width);
     height: var(--width);
     border: 1px solid #ffffff40;
     border-radius: 50%;
   }
-  li[data-tech="Python"]:before {
-    background-color: #3572A5;
-  }
-  li[data-tech="HTML"]:before {
-    background-color: #e34c26;
-  }
-  li[data-tech="C"]:before {
-    background-color: #555555;
-  }
-  li[data-tech="JavaScript"]:before {
-    background-color: #f1e05a;
-  }
-  li[data-tech="CSS"]:before {
-    background-color: #563d7c;
-  }
+  li[data-tech="Python"]:after     { background-color: #3572A5; }
+  li[data-tech="HTML"]:after       { background-color: #e34c26; }
+  li[data-tech="C"]:after          { background-color: #555555; }
+  li[data-tech="JavaScript"]:after { background-color: #f1e05a; }
+  li[data-tech="CSS"]:after        { background-color: #563d7c; }
 }
 
 @media (max-width: 640px) {

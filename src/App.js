@@ -1,14 +1,22 @@
 import './App.css';
-import logo from './githubtapiocode.png';
-import w3c from './W3C_Icon.svg';
-import raspberrypi from './raspberrypi.png';
-import bleepImage from './bleep.png';
-import twentyfortyeight from './2048.png';
+import logo from './images/githubtapiocode.png';
+import raspberrypi from './images/raspberrypi.png';
+import bleepImage from './images/bleep.png';
+import twentyfortyeight from './images/2048.png';
+import ruuvi from './images/ruuvi-logo-white.png';
 
 const categories = [
   {
-    name: 'Raspberry Pi / RuuviTag',
-    image: raspberrypi,
+    titles: [
+      {
+        name: 'Raspberry Pi',
+        image: raspberrypi,
+      },
+      {
+        name: 'RuuviTag',
+        image: ruuvi,
+      },
+    ],
     projects: [
 
       {
@@ -67,8 +75,11 @@ const categories = [
     ]
   },
   {
-    name: 'Web Development',
-    image: w3c,
+    titles: [
+      {
+        name: 'Web Development',
+      },
+    ],
     projects: [
       {
         url: 'https://github.com/tapiocode/overflow-shadow',
@@ -166,8 +177,12 @@ function App() {
           {categories.map((category, i) => (
             <div key={i} className="category">
               <h2>
-                <div className="icon"><img src={category.image} alt={category.name} /></div>
-                <span>{category.name}</span>
+                {category.titles.map((title, i) => (
+                  <div key={i} className="title">
+                    {title.image && <img src={title.image} alt="" />}
+                    <span>{title.name}</span>
+                  </div>
+                ))}
               </h2>
               {category.projects.map((project, i) => (
                 <Card key={i} {...project} />
