@@ -165,13 +165,16 @@ function App() {
     <>
       <header>
         <div className="content-col">
-          <img className="logo" src={logo} alt="github.com/tapiocode" />
+          <a href="https://github.com/tapiocode"><img className="logo" src={logo} alt="github.com/tapiocode" /></a>
         </div>
       </header>
       <main>
         <div className="content-col cards-container">
           <p className="ingress">
-            <span>GitHub projects showcase</span>
+            <div>
+              <strong>Personal GitHub projects showcase</strong>
+              <a href="https://github.com/tapiocode?tab=repositories">All GitHub repositories &raquo;</a>
+            </div>
             <span>Last update: July 2024</span>
           </p>
           {categories.map((category, i) => (

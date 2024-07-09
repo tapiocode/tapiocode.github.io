@@ -26,6 +26,10 @@
   border-bottom: 2px solid #ffffff40;
   display: flex;
   justify-content: space-between;
+  a {
+    display: block;
+    margin: .5rem 0;
+  }
 }
 
 header {
