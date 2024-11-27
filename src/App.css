@@ -1,42 +1,80 @@
-#root {
-  max-width: 1280px;
+
+header {
+  background: no-repeat url('/red-stripe.jpg');
+  background-position: bottom center;
+  background-size: cover;
+  width: 100%;
+  min-height: 250px;
+}
+main {
+  flex-grow: 1;
+}
+footer {
+  background: repeat-x url('/footer-bg.svg');
+  color: var(--color-light);
+  background-position: top center;
+  background-size: 500px;
+}
+
+.content-wrapper {
+  width: 100%;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 0 2.5rem;
 }
-
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  min-width: 200px;
+  max-width: 450px;
+  margin: auto;
+  padding: 1rem .5rem .5rem;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.site-info {
+  float: right;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+ul.tech-list {
+  margin: 0;
+  padding: 0;
+  width: fit-content;
+  text-align: right;
+}
+.tech-list li {
+  list-style: none;
+  margin: .2rem 0;
+  white-space: nowrap;
+  font-size: .8rem;
+}
+.tech-list li:after {
+  --width: .8rem;
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: .4rem;
+  width: var(--width);
+  height: var(--width);
+  border: 1px solid #ffffff40;
+  border-radius: 50%;
+}
+.tech-list li[data-tech="Python"]:after     { background-color: #3572A5; }
+.tech-list li[data-tech="HTML"]:after       { background-color: #e34c26; }
+.tech-list li[data-tech="C"]:after          { background-color: #555555; }
+.tech-list li[data-tech="JavaScript"]:after { background-color: #f1e05a; }
+.tech-list li[data-tech="CSS"]:after        { background-color: #563d7c; }
+
+@media screen and (max-width: 800px) {
+  header {
+    min-height: 220px;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media screen and (max-width: 480px) {
+  header {
+    min-height: 180px;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  .logo {
+    max-width: 300px;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  .content-wrapper {
+    padding: 0 .5rem;
+  }
 }
