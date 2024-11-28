@@ -46,6 +46,7 @@ body {
 
 p {
   font-weight: 300;
+  max-width: 30rem;
 }
 
 a {

@@ -32,6 +32,27 @@ footer {
   float: right;
 }
 
+.staggered-elems {
+  direction: rtl;
+  text-align: left;
+  min-width: 300px;
+}
+.staggered-elems > * {
+  display: inline-block;
+  transform: rotateZ(-5deg) rotateX(10deg);
+  box-shadow: .3rem 1rem 1rem #33333388;
+  border: 3px solid #33333388;
+  border-radius: 10px;
+  width: 30%;
+  aspect-ratio: 1;
+}
+.staggered-elems > *:hover {
+  border-color: var(--color-alternative);
+}
+.staggered-elems > *:not(:last-child) {
+  margin-left: -10%;
+}
+
 ul.tech-list {
   margin: 0;
   padding: 0;

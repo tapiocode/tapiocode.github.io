@@ -5,12 +5,13 @@ import bluesky from './assets/bluesky.svg';
 import koFi from './assets/ko-fi.png';
 import './App.css'
 import categories from './github_projects';
+import experiences from './web_experiences';
 
 function Github({ width = 18 }) {
   return <img src={github} className="inline align-text-top" width={width} />;
 }
 
-function Card(props) {
+function Category(props) {
   return (
     <section className="grid grid-cols-subgrid col-span-3 gap-3 border-t border-t-stone-400 pt-2">
       <div
@@ -42,6 +43,19 @@ function Card(props) {
   );
 }
 
+function SectionTop(props) {
+  return (
+    <>
+    <h2 className="md:col-start-2 col-span-3">{props.title}</h2>
+    <p className="md:col-start-2 col-span-3">{props.desc}</p>
+    </>
+  );
+}
+
+function Divider() {
+  return <hr className="border-stone-500 my-2" />;
+}
+
 function App() {
 
   const getTechnologiesLink = (title, i) => {
@@ -63,10 +77,45 @@ function App() {
         </div>
       </header>
       <main>
-        <div className="content-wrapper">
+        <div className="content-wrapper flex flex-col gap-6">
+          <div className="flex justify-center">
+            <p>A collection of personal projects and works I've published online that I consider worthwhile showcasing.
+              Everything is designed and built by me unless otherwise noted.</p>
+          </div>
+
+          <Divider />
+
+          <div className="grid grid-cols-4 gap-4">
+            <SectionTop
+              title="Web Experiences"
+              desc="Exploring concepts, new technologies, and ideas."
+            />
+            {experiences.map(({ title, description, url, urlShown, images }, i) => (
+            <div key={i} className="grid grid-cols-subgrid col-span-4 my-6">
+              <div className="col-span-4 md:col-span-1">
+                <div className="flex flex-col items-end text-right gap-2">
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                  <a href={url} target="_blank">{urlShown}</a>
+                </div>
+              </div>
+              <div className="col-span-3 px-5 staggered-elems">
+                {images.map((image, i) =>
+                <a key={i} href={image.url} target="_blank"><img src={image.image} /></a>
+                )}
+              </div>
+            </div>
+            ))}
+          </div>
+
+          <Divider />
+
           <div className="max-w-screen-md mb-8">
             <div className="grid grid-cols-projects gap-4">
-              <h2 className="md:col-start-2 col-span-3"><Github width={32} /> GitHub projects</h2>
+              <SectionTop
+                title={<><Github width={32} /> GitHub Projects</>}
+                desc="A collection of various types of projects published over the years. Mostly MIT licensed."
+              />
               {categories.map((category, i) => (
               <div key={i} className="grid grid-cols-subgrid col-span-4 mb-12">
                 <div className="col-span-4 md:col-span-1">
@@ -79,7 +128,7 @@ function App() {
                 </div>
                 <div className="grid grid-cols-subgrid gap-8 col-span-3">
                 {category.projects.map((project, i) => (
-                  <Card key={i} {...project} />
+                  <Category key={i} {...project} />
                 ))}
                 </div>
               </div>
@@ -90,8 +139,12 @@ function App() {
       </main>
       <footer className="pt-10 pb-20">
         <div className="content-wrapper flex flex-col gap-4 items-center justify-center">
-          <p>A showcase of personal projects</p>
-          <div className="w-fit grid grid-cols-footer gap-4 gap-x-2 text-sm">
+          <p>A showcase of personal projects.</p>
+          <p>Site published on Github Pages. <a href="https://github.com/tapiocode/tapiocode.github.io">View source code</a>.</p>
+          <div className="w-fit my-8 grid grid-cols-footer gap-4 gap-x-2 text-sm">
+            <Github width={20} />
+            <span>Github</span>
+            <a href="https://github.com/tapiocode">My GitHub home</a>
             <Mail style={{ width: '20px'}} />
             <span>Email</span>
             <a href="mailto:me@tapiocode.com">me@tapiocode.com</a>
