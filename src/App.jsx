@@ -101,7 +101,9 @@ function App() {
               </div>
               <div className="col-span-3 px-5 staggered-elems">
                 {images.map((image, i) =>
-                <a key={i} href={image.url} target="_blank"><img src={image.image} /></a>
+                <a key={i} href={image.url} target="_blank">
+                  <img src={image.image} className={image.shadow ? 'border-shadow' : ''} />
+                </a>
                 )}
               </div>
             </div>

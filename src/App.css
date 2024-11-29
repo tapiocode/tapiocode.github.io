@@ -15,6 +15,10 @@ footer {
   background-position: top center;
   background-size: 500px;
 }
+header, main, footer {
+  box-shadow: 0 10px 5px #2f2f2f91;
+  background-color: var(--color-light);
+}
 
 .content-wrapper {
   width: 100%;
@@ -32,6 +36,15 @@ footer {
   float: right;
 }
 
+.border-shadow {
+  box-shadow: .3rem 1rem 1rem #33333388;
+  border: 3px solid #33333388;
+  border-radius: 10px;
+}
+.border-shadow:hover {
+  border-color: var(--color-alternative);
+}
+
 .staggered-elems {
   direction: rtl;
   text-align: left;
@@ -40,14 +53,8 @@ footer {
 .staggered-elems > * {
   display: inline-block;
   transform: rotateZ(-5deg) rotateX(10deg);
-  box-shadow: .3rem 1rem 1rem #33333388;
-  border: 3px solid #33333388;
-  border-radius: 10px;
   width: 30%;
   aspect-ratio: 1;
-}
-.staggered-elems > *:hover {
-  border-color: var(--color-alternative);
 }
 .staggered-elems > *:not(:last-child) {
   margin-left: -10%;
